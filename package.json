@@ -2,6 +2,7 @@
   "name": "js-coverage-demo",
   "version": "1.0.0",
   "description": "Demo live-updating coverage goodness",
+  "repository": "https://github.com/justinabrahms/js-coverage-demo",
   "main": "index.js",
   "scripts": {
     "find-tests": "find . -name '*_test.js' | grep -v 'node_modules' | grep -v 'flycheck' | grep -v '.#' > /tmp/all_tests.js",
