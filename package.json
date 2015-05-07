@@ -1,0 +1,28 @@
+{
+  "name": "js-coverage-demo",
+  "version": "1.0.0",
+  "description": "Demo live-updating coverage goodness",
+  "main": "index.js",
+  "scripts": {
+    "find-tests": "find . -name '*_test.js' | grep -v 'node_modules' | grep -v 'flycheck' | grep -v '.#' > /tmp/all_tests.js",
+    "watch": "npm-watch",
+    "coverage-watch": "browser-sync start --files='coverage/lcov-report/index.html' --server --startPath coverage/lcov-report",
+    "coverage": "npm run find-tests && NODE_ENV=test istanbul cover -x '**/*_test.js' _mocha -- `cat /tmp/all_tests.js`",
+    "test": "npm run find-tests && NODE_ENV=test _mocha -- `cat /tmp/all_tests.js`"
+  },
+  "keywords": [
+    "testing",
+    "coverage"
+  ],
+  "author": "Justin Abrahms <justin@abrah.ms>",
+  "license": "MIT",
+  "watch": {
+    "coverage": "src/*.js"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.7.1",
+    "istanbul": "^0.3.13",
+    "mocha": "^2.2.4",
+    "npm-watch": "0.0.0"
+  }
+}
